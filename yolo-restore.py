@@ -19,22 +19,13 @@ torrentsFiles = sourceFiles = [y for x in os.walk(sys.argv[2]) for y in glob(os.
 for torrentFile in torrentsFiles:
     metainfo = MetaInfo.read(torrentFile)
     info = metainfo['info']
-    if 'length' in info:
-        # let's assume we just have a file
-        print(info)
-        if info['length'] in source:
-            print('linking ' + source[info['length']] + ' to ' + sys.argv[3] + str(info['name']) + '/' + str(info['files'][0]['path'][0]))
-            os.system('mkdir "' + sys.argv[3] + '/' + str(info['name']) + '/"')
-            os.system('ln "' + source[info['length']] + '" "' + sys.argv[3] + str(info['name']) + '/' + str(
-                info['files'][0]["path"][0]) + '"')
-    else:
-        for file in info['files']:
-            path = ''
-            for item in file['path']:
-                if path != '':
-                    path = path + "/"
-                path = path + item
-            if file['length'] in source:
-                print('linking ' + source[file['length']] + ' to ' + sys.argv[3] + str(info['name']) + '/' + str(file['path'][0]))
-                os.system('mkdir "' + sys.argv[3] + '/' + str(info['name']) + '/"')
-                os.system('ln "' + source[file['length']] + '" "' + sys.argv[3] + str(info['name']) + '/' + str(file['path'][0]) + '"')
+     for file in info['files']:
+        path = ''
+         for item in file['path']:
+             if path != '':
+                 path = path + "/"
+             path = path + item
+         if file['length'] in source:
+             print('linking ' + source[file['length']] + ' to ' + sys.argv[3] + str(info['name']) + '/' + str(file['path'][0]))
+             os.system('mkdir "' + sys.argv[3] + '/' + str(info['name']) + '/"')
+             os.system('ln "' + source[file['length']] + '" "' + sys.argv[3] + str(info['name']) + '/' + str(file['path'][0]) + '"')
