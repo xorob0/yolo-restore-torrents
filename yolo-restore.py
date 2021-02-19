@@ -21,7 +21,6 @@ for torrentFile in torrentsFiles:
     info = metainfo['info']
     if 'length' in info:
         # let's assume we just have a file
-        print(source[info['length']])
         if info['length'] in source:
             print('linking ' + source[info['length']] + ' to ' + sys.argv[3] + str(info['name']) + '/' + str(
                 info['path'][0]))
