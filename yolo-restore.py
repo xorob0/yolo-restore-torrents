@@ -31,5 +31,5 @@ for torrentFile in torrentsFiles:
                 path = path + item
             if file['length'] in source:
                 print('linking ' + source[file['length']] + ' to ' + sys.argv[3] + str(info['name']) + '/' + str(file['path'][0]))
-                os.system("mkdir " + sys.argv[3] + '/' + str(info['name']) + '/')
+                os.system('mkdir "' + sys.argv[3] + '/' + str(info['name']) + '/"')
                 os.system('ln "' + source[file['length']] + '" "' + sys.argv[3] + str(info['name']) + '/' + str(file['path'][0]) + '"')
