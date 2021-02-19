@@ -29,7 +29,7 @@ for torrentFile in torrentsFiles:
                 if path != '':
                     path = path + "/"
                 path = path + item
-
-            print(source[file['length']], str(info['name']) + '/' + str(file['path'][0]))
-            os.system("mkdir " + sys.argv[3] + '/' + str(info['name']) + '/' )
-            os.system("ln " + source[file['length']] + ' ' + sys.argv[3] + '/' + str(info['name']) + '/' + str(file['path'][0]))
+            if file['length'] in source:
+                print(source[file['length']], str(info['name']) + '/' + str(file['path'][0]))
+                os.system("mkdir " + sys.argv[3] + '/' + str(info['name']) + '/')
+                os.system("echo " + source[file['length']] + ' ' + sys.argv[3] + '/' + str(info['name']) + '/' + str(file['path'][0]))
