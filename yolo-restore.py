@@ -23,7 +23,7 @@ for torrentFile in torrentsFiles:
         # let's assume we just have a file
         if info['length'] in source:
             print('linking ' + source[info['length']] + ' to ' + sys.argv[3] + str(info['name']) + '/' + str(
-                info['path'][0]))
+                info['path']))
             os.system('mkdir "' + sys.argv[3] + '/' + str(info['name']) + '/"')
             os.system('ln "' + source[info['length']] + '" "' + sys.argv[3] + str(info['name']) + '/' + str(
                 info['path']) + '"')
