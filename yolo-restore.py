@@ -21,12 +21,12 @@ for torrentFile in torrentsFiles:
     info = metainfo['info']
     if 'length' in info:
         # let's assume we just have a file
+        print(info)
         if info['length'] in source:
-            print('linking ' + source[info['length']] + ' to ' + sys.argv[3] + str(info['name']) + '/' + str(
-                info['path']))
+            print('linking ' + source[info['length']] + ' to ' + sys.argv[3] + str(info['name']) + '/' + str(info['file'][path][0]))
             os.system('mkdir "' + sys.argv[3] + '/' + str(info['name']) + '/"')
             os.system('ln "' + source[info['length']] + '" "' + sys.argv[3] + str(info['name']) + '/' + str(
-                info['path']) + '"')
+                info['file'][path][0]) + '"')
     else:
         for file in info['files']:
             path = ''
