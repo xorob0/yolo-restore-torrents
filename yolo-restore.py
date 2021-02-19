@@ -19,6 +19,7 @@ torrentsFiles = sourceFiles = [y for x in os.walk(sys.argv[2]) for y in glob(os.
 for torrentFile in torrentsFiles:
     metainfo = MetaInfo.read(torrentFile)
     info = metainfo['info']
+    print(info)
     for file in info['files']:
         path = ''
         for item in file['path']:
