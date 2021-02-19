@@ -26,7 +26,7 @@ for torrentFile in torrentsFiles:
                 info['path'][0]))
             os.system('mkdir "' + sys.argv[3] + '/' + str(info['name']) + '/"')
             os.system('ln "' + source[info['length']] + '" "' + sys.argv[3] + str(info['name']) + '/' + str(
-                info['path'][0]) + '"')
+                info['path']) + '"')
     else:
         for file in info['files']:
             path = ''
